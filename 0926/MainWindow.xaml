@@ -5,11 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_0926"
         mc:Ignorable="d"
-        Title="飲料點餐" Height="525" Width="1000">
+        Title="飲料點餐" Height="570" Width="540">
     <Grid>
-        <StackPanel x:Name="stackpanel_DrinkMenu" Margin="56,53,588,407" Background="#FFF3CDCD" Width="355" Height="50"/>
-        <TextBlock x:Name="textblock" HorizontalAlignment="Left" Margin="20,330,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="170" Width="562" Background="#FFE8E5A9"/>
-        <Button x:Name="OrderButton" Content="Button" HorizontalAlignment="Left" Margin="692,53,0,0" VerticalAlignment="Top" Height="108" Width="270" Click="button_click"/>
-
+        <StackPanel x:Name="stackpanel_DrinkMenu" Margin="0,73,120,0" VerticalAlignment="Top" Background="#FFEF8787" HorizontalAlignment="Right" Width="400" />
+        <TextBlock x:Name="textblock" Margin="10,391,10,19" TextWrapping="Wrap" Background="#FFE8E5A9" FontSize="16"/>
+        <Button x:Name="OrderButton" Content="確定" Margin="441,30,10,0" VerticalAlignment="Top" Height="38" Click="button_click" />
+        <GroupBox Header="內用/外帶" Margin="20,10,120,0" Height="58" VerticalAlignment="Top" BorderBrush="#FFECE3D5" Background="#FFEF9090" HorizontalAlignment="Left" Width="400" >
+            <StackPanel Orientation="Horizontal" Margin="38,0,0,0" Height="30" HorizontalAlignment="Left" Width="350">
+                <RadioButton Content="內用" FontSize="18" VerticalContentAlignment="Center" Width="100" IsChecked="True" Checked="RadioButton_Checked"/>
+                <RadioButton Content="外帶" FontSize="18" VerticalContentAlignment="Center" Width="100" Checked="RadioButton_Checked"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Window>
