@@ -150,7 +150,22 @@ namespace _0926
 
             //顯示訂單明細
             DisplayOrderDetail(orders);
+            
+            //儲存上一筆訂單資料
+            SaveOrderDetail(orders);
+        }
 
+        private void SaveOrderDetail(Dictionary<string, int> myOrders)
+        {
+            //儲存上一筆訂單資料
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text files(*.txt)|*.txt";
+            saveFileDialog.Title = "儲存訂單";
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                File.WriteAllText(saveFileDialog.FileName, textblock.Text);
+            }
         }
 
         private void DisplayOrderDetail(Dictionary<string, int> myOrders)
@@ -226,8 +241,9 @@ namespace _0926
                 Text = $"本次訂購{myOrders.Count}項，{discountString} ，售價{sellPrice}元。"
             });
 
-                textblock.Inlines.Add(displayString);
+            textblock.Inlines.Add(displayString);
         }
+
         private void PlaceOrder(Dictionary<string, int> myOrders)
         {
             myOrders.Clear();
@@ -250,7 +266,6 @@ namespace _0926
         {
             var targetRadioButton = sender as RadioButton;
             takeout = targetRadioButton.Content.ToString();
-            //MessageBox.Show($"您選擇的是{targetRadioButton.Content}", "選擇結果");
         }
     }
 }   
